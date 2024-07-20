@@ -1,0 +1,7 @@
+// Describle your solution by you own
+// Calculate the Time Complexity and Space Complexity
+
+Assignment
+https://leetcode.com/problems/contiguous-array/description/ (Microsoft7Meta5Amazon5Google2Apple)
+https://leetcode.com/problems/next-permutation/description/ (Meta43Amazon9Google6Microsoft5)
+https://leetcode.com/problems/maximum-subarray/description/ (Amazon17Microsoft16Bloomberg9Meta9LinkedIn6)

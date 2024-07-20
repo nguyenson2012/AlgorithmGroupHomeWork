@@ -1,0 +1,7 @@
+// Describle your solution by you own
+// Calculate the Time Complexity and Space Complexity
+
+Assignment
+https://leetcode.com/problems/longest-consecutive-sequence/description/ (Google18Amazon12Microsoft5Adobe5)
+https://leetcode.com/problems/top-k-frequent-elements/description/ (Meta65Amazon17Bloomberg7Apple5)
+https://leetcode.com/problems/majority-element/description/ (Amazon17Google11Bloomberg9Meta7)

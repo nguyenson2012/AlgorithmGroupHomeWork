@@ -1,0 +1,7 @@
+// Describle your solution by you own
+// Calculate the Time Complexity and Space Complexity
+
+Assignment
+https://leetcode.com/problems/group-anagrams/description/ (Amazon34Microsoft15Meta10Apple10Google6)
+https://leetcode.com/problems/kth-largest-element-in-an-array/description/ (Meta144Amazon19Microsoft6TikTok6)
+https://leetcode.com/problems/3sum/description/ (Meta49Amazon19Google14Microsoft8)

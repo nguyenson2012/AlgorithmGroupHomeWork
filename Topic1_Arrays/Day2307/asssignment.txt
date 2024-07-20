@@ -1,0 +1,7 @@
+// Describle your solution by you own
+// Calculate the Time Complexity and Space Complexity
+
+Assignment
+https://leetcode.com/problems/random-pick-with-weight/description/ (Meta113Google10Amazon6Netflix5)
+https://leetcode.com/problems/merge-intervals/description/ (Meta71Amazon29Microsoft15Apple12TikTok12)
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/ (Amazon29Microsoft11Google11Meta10)
