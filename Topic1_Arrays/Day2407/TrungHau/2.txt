@@ -1,1 +1,11 @@
-
+// Time complexity: O(log(n))
+// Memory complexity: ...
+// I has a way to solve that don't use sort. It is use two loop to find index max in the array but it isn't as effectively way as 
+// sort way. 
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        sort(nums.begin(), nums.end());
+        return nums[nums.size() - k];
+    }
+};
