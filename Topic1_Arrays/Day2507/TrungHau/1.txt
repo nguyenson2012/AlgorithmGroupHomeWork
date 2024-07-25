@@ -1,1 +1,26 @@
-
+// Time complexity: O(n)
+// Memory complexity: .... (i don't know to calulate)
+// Description: Using two pointer to consider start and end. Choose pointer has smaller value to move. Moving pointer to point has higher value than previous pointer. And we continue loop until pointer left higher or equal than pointer right. 
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        int ptr_left = 0;
+        int ptr_right = height.size() - 1;
+        int max_water = 0;
+        while(ptr_left < ptr_right){
+            int sum = min(height[ptr_left], height[ptr_right]) * (ptr_right - ptr_left);
+            if(height[ptr_left] < height[ptr_right]){
+                int i = ptr_left + 1;
+                while(height[i] < height[ptr_left]){i++;}
+                ptr_left = i;
+            }
+            else {
+                int i = ptr_right - 1;
+                while(height[i] < height[ptr_right]){i--;}
+                ptr_right = i;
+            }
+            max_water = max(max_water, sum);
+        }
+        return max_water;
+    }
+};
