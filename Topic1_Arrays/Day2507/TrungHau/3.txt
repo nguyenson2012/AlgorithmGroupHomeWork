@@ -1,1 +1,39 @@
+// Time complexity: O(n ^ 3)
+// Memory complexity: ....
+// Description: Using loop to compare each element together.
 
+#include <string>
+class Solution {
+public:
+    vector<string> commonChars(vector<string>& words) {
+        string a = words[0];
+        string b = "";
+        for(int i = 1; i < words.size(); i++){
+            string b = words[i];
+            string temp = a;
+            for(int j = 0; j < temp.length(); j++){
+                bool has = false;
+                for(int k = 0; k < b.length(); k++){
+                    if(temp[j] == b[k]){
+                    b.erase(b.begin() + k);
+                    has = true;
+                    break;
+                    }
+                }   
+                if(has == false){
+                temp.erase(temp.begin() + j);
+                j--;
+                }
+            }
+            a = temp;
+            if(a.length() == 0) break;
+        }
+        vector <string> res(a.length());
+        if(a.length() != 0) {
+            for(int i = 0; i < a.length(); i++){
+                res[i] = a[i];
+            }
+        }
+        return res;
+    }
+};
