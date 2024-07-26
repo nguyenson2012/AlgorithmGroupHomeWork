@@ -1,1 +1,22 @@
+// Time complexity: O(n^2)
+// Memory compleity: ...
+// Description: Using prefix array.
 
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+        vector <int> sum(nums.size() + 1);
+        sum[0] = 0;
+        for(int i = 0; i < nums.size(); i++){
+            sum[i + 1] = sum[i] + nums[i];
+           // cout << sum[i + 1] << ' ';
+        }
+        int count = 0;
+        for(int i = 1; i < sum.size(); i++){
+            for(int j = i - 1; j >= 0; j--){
+                if(sum[j] == sum[i] - k) count++;
+            }
+        }
+        return count;
+    }
+};
