@@ -1,1 +1,5 @@
-
+// Description: Use vector and loop:
++ First, Add the first element in vector intervals to the new vector;
++ Second, Use loop and check the case to save result 
+// Time memory: O (n log(n))
+// 
