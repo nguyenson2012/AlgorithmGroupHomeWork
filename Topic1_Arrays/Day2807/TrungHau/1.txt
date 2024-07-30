@@ -1,1 +1,36 @@
+// Time complexity: O(n)
+// Space complexity: O(1);
+// Description: Consider each instance. Here below code:
 
+class Solution {
+public:
+    int bagOfTokensScore(vector<int>& tokens, int power) {
+        sort(tokens.begin(), tokens.end());
+        int beginPtr = 0, endPtr = tokens.size() - 1;
+        int point = 0, max_ = 0;
+        while(beginPtr <= endPtr){
+            if(point > 0){
+                if(power >= tokens[beginPtr]){
+                    power -= tokens[beginPtr];
+                    point++;
+                    beginPtr++;
+                }
+                else{
+                    point--;
+                    power = power + tokens[endPtr];
+                    endPtr--;
+                }
+            }
+            else{
+                if(power >= tokens[beginPtr]){
+                    power -= tokens[beginPtr];
+                    point++;
+                    beginPtr++;
+                }
+                else break;
+            }
+            max_ = max(max_, point);
+        }
+        return max_;
+    }
+};
