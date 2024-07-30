@@ -1,0 +1,24 @@
+// Time complexity: O(nlog(n))
+// Space complexity: ..
+// Description: Using....
+
+class Solution {
+public:
+    bool checkSubarraySum(vector<int>& nums, int k) {
+        vector <int> sum(nums.size ());
+        map <int, int> index;
+        sum[0] = nums[0];
+        index[sum[0] % k] = 0;
+        for(int i = 1; i < nums.size(); i++){
+            sum[i] = sum[i - 1] + nums[i];
+            if(sum[i] % k == 0) return true;
+            if(index.find(sum[i] % k) == index.end()){
+                index[sum[i] % k] = i;
+            }
+            else{
+                if(i - index[sum[i] % k] >= 2) return true;
+            }
+        }
+        return false;
+    }
+};
