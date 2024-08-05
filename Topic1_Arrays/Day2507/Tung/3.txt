@@ -1,0 +1,31 @@
+// Description: Use ASCII and count fred of alphal.
+// Time complexity: O(n * m).
+// Memory complexity: O(n * m).
+class Solution {
+public:
+    vector<string> commonChars(vector<string>& words) {
+        vector<string> result;
+        vector<int> min_fred(26 , 1000);
+        for(string word : words)
+        {
+            vector<int> fred(26 , 0);
+            for(char c : word)
+            {
+                fred[c - 'a']++;
+            }
+            for(int i = 0 ; i < 26 ; i++)
+            {
+                min_fred[i] = min(min_fred[i] , fred[i]);
+            }
+        }
+        for(int i = 0 ; i < 26 ; i++)
+        {
+            while(min_fred[i] > 0)
+            {
+                result.push_back(string(1 , 'a' + i));
+                min_fred[i]--;
+            }
+        }
+        return result;
+    }
+};
