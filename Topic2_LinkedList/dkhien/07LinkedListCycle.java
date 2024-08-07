@@ -1,17 +1,10 @@
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) {
- *         val = x;
- *         next = null;
- *     }
- * }
- */
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+
 public class Solution {
     public boolean hasCycle(ListNode head) {
-        if (head == null) return false;
+        if (head == null)
+            return false;
         ListNode slow = head;
         ListNode fast = head;
 
