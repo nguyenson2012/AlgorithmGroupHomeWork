@@ -1,0 +1,60 @@
+// Time complexity: O(2n)
+// Space complexity: O(n)
+// Description: Create 1 new ListNode to merge 2 ListNode.
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+        ListNode* head1 = list1;
+        ListNode* head2 = list2;
+        ListNode* a = new ListNode;
+        a->next = nullptr;
+        ListNode* head = a;
+        ListNode *temp = head;
+        while(head1 != NULL && head2 != NULL)
+        {                
+            ListNode* newNode = new ListNode;
+            if(head1->val < head2->val)
+            {
+                newNode->val = head1->val;
+                head1 = head1->next;
+            }
+            else
+            {
+                newNode->val = head2->val;
+                head2 = head2->next;
+            }
+            temp->next = newNode;
+            temp = temp->next;
+        }
+        while(head1 != NULL)
+        {
+            ListNode *newNode = new ListNode;
+            newNode->next = nullptr;
+            newNode->val = head1->val;
+            temp->next = newNode;
+            temp = temp->next;
+            head1 = head1->next;
+        }
+        while(head2 != NULL)
+        {
+            ListNode *newNode = new ListNode;
+            newNode->next = nullptr;
+            newNode->val = head2->val;
+            temp->next = newNode;
+            temp = temp->next;
+            head2 = head2->next;
+        }
+        return head->next;
+    }
+};

@@ -1,0 +1,16 @@
+// Time complexity: O(n)
+// Memory complexity: 
+// Description: I compare each element to find the space largest between two element in the array and update to res variable.
+
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int num_min = prices[0];
+        int res = 0;
+        for(int i = 0; i < prices.size(); i++){
+            if(num_min > prices[i]) num_min = prices[i];
+            if(res < prices[i] - num_min) res = prices[i] - num_min;
+    }
+    return res;
+    }
+};

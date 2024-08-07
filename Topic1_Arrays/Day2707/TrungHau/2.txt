@@ -1,0 +1,30 @@
+// Time complexity: O(nlog(n))
+// Space complexity: (3n)
+// Description: Count the frequently of each number and fill to temp container and compare it. push to save container.
+class Solution {
+public:
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        vector <int> save;
+        vector <pair<int, int>> temp;
+        sort(nums.begin(), nums.end());
+        int count = 1;
+        for(int i = 1; i < nums.size(); i++){
+            if(nums[i] == nums[i - 1]){
+                count++;
+            }
+            else{
+                temp.push_back(make_pair(count, nums[i - 1]));
+                count = 1;
+            }
+        }
+        temp.push_back(make_pair(count, nums[nums.size() - 1]));
+    
+        sort(temp.begin(), temp.end());
+
+        for(int i = 0; i < k; i++){
+            save.push_back(temp[temp.size() - 1- i].second);
+        }
+
+        return save;
+    }
+};  

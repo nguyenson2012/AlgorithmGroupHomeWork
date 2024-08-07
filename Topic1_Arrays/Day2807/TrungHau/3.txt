@@ -1,0 +1,32 @@
+// Time complexity: O(nlog(n))
+// Space complexity: O(n)
+// Description: Using......
+
+class Solution {
+public:
+    vector<int> deckRevealedIncreasing(vector<int>& deck) {
+        sort(deck.begin(), deck.end());
+        int i = 0;
+        vector <int> save(deck.size(), 0);
+        bool check = true;
+        int j = 0;
+        while(j < deck.size()){
+            if(save[i] == 0)
+            {
+                if(check == true){
+                    save[i] = deck[j];
+                    j++;
+                    check = false;
+                }
+                else{
+                    check = true;
+                }
+            }
+            i++;
+            if(i == save.size()){
+                i = 0;
+            }
+        }
+        return save;
+    }
+};
