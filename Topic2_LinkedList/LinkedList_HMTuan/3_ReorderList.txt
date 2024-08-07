@@ -1,0 +1,44 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+// Time Complexity: O(n + n/2)
+// Space Complexity: O(n) - using deque to store all the nodes of linked list.
+// Explanation: Using double-ended queue (deque) to store and select front, back node. 
+
+class Solution {
+public:
+    void reorderList(ListNode* head) {
+        // Store list nodes in double-ended queue
+        ListNode* temp = head;
+        deque<ListNode*> dq;
+        while(temp != nullptr) {
+            dq.push_back(temp);
+            temp = temp->next;
+        }
+
+        // Reordering the list
+        while(!dq.empty()) {
+            // Set the next node to the front node of deque
+            head->next = dq.front();
+            dq.pop_front();
+            head = head->next;
+
+            // Set the next node to the back node of deque
+            if (!dq.empty()) {
+                head->next = dq.back();
+                dq.pop_back();
+                head = head->next;
+            }
+        }
+
+        //Set the next of last node to nullptr
+        head->next = nullptr;
+    }
+};
