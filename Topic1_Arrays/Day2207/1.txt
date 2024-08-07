@@ -1,0 +1,14 @@
+var twoSum = function(nums, target) {
+    let result = [];
+    let lengthNums = nums.length;
+    for(let i = 0; i < lengthNums; i++){
+        for(let j = i + 1; j < lengthNums; j++){
+            if(nums[i] + nums[j] == target){
+                result.push(i);
+                result.push(j);
+                break;
+            }
+        }
+    }
+    return result;
+};
