@@ -1,0 +1,16 @@
+// Describle your solution by you own
+// Calculate the Time Complexity and Space Complexity
+// Add new folder with your name and addd your homework in the folder
+
+Assignment
+https://leetcode.com/problems/valid-parentheses/description/
+https://leetcode.com/problems/min-stack/
+https://leetcode.com/problems/evaluate-reverse-polish-notation/description/
+https://leetcode.com/problems/daily-temperatures/
+https://leetcode.com/problems/reveal-cards-in-increasing-order
+https://leetcode.com/problems/moving-average-from-data-stream
+https://leetcode.com/problems/find-the-winner-of-the-circular-game
+https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit
+
+
+
