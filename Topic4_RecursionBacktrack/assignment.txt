@@ -1,0 +1,17 @@
+// Describle your solution by you own
+// Calculate the Time Complexity and Space Complexity
+// Add new folder with your name and addd your homework in the folder
+
+Recursion
+https://leetcode.com/problems/decode-string/description/
+https://leetcode.com/problems/powx-n/description/
+https://leetcode.com/problems/find-the-winner-of-the-circular-game/description/
+https://leetcode.com/problems/reorder-list/description/
+https://leetcode.com/problems/integer-to-english-words/description/
+
+Backtrack
+https://leetcode.com/problems/generate-parentheses/description/
+https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/
+https://leetcode.com/problems/path-with-maximum-gold/description/
+https://leetcode.com/problems/word-search/description/
+https://leetcode.com/problems/palindrome-partitioning/description/
