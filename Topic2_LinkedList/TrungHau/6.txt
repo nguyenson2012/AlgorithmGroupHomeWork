@@ -1,1 +1,54 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+ #include <bits/stdc++.h>
+class Solution {
+public:
 
+    ListNode* reverse(ListNode* head) {
+        ListNode* prev = nullptr;
+        ListNode* curr = head;
+        while (curr != nullptr) {
+            ListNode* next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
+    ListNode* addTwoNumbers(ListNode* li1, ListNode* li2) {
+        ListNode* revLi1 = li1;
+        ListNode* revLi2 = li2;
+
+        ListNode* res = nullptr;
+        int pre = 0;
+        while(revLi1 != nullptr || revLi2 != nullptr || pre != 0)
+        {
+            int valueLi1 = (revLi1 != nullptr) ? revLi1->val : 0;
+            int valueLi2 = (revLi2 != nullptr) ? revLi2->val : 0;
+            int temp = (valueLi1 + valueLi2 + pre);
+            pre = temp / 10;
+            temp = temp % 10;
+            ListNode* newNode = new ListNode(temp);
+            if(res == nullptr)
+            {
+                res = newNode;
+            }
+            else {
+                newNode->next = res;
+                res = newNode;
+            }
+            if(revLi1 != nullptr)revLi1 = revLi1->next;
+            if(revLi2 != nullptr)revLi2 = revLi2->next;
+        }
+
+        return reverse(res);
+    }
+};
