@@ -1,0 +1,41 @@
+#include <stack>
+class Solution {
+public:
+    int evalRPN(vector<string>& tokens) {
+        stack <int> temp;
+        int res = 0;
+        bool check = false;
+        for(int i = 0; i < tokens.size(); i++){
+            if (isdigit(tokens[i].back()) || (tokens[i].size() > 1 && tokens[i][0] == '-')){
+                int x = stoi(tokens[i]);
+                temp.push(x);
+            }
+            else{
+                int b = temp.top(); temp.pop();
+                int a = temp.top(); temp.pop();
+                switch(tokens[i][0]){
+                    case '+':
+                        res = a + b;
+                        temp.push(res);
+                        break;
+                    case '-':
+                        res = a - b;
+                        temp.push(res);
+                        break;
+                    case '*':
+                        res = a * b;
+                        temp.push(res);
+                        break;
+                    case '/':
+                        res = a / b;
+                        temp.push(res);
+                        break;
+                    default:
+                    break;
+                }
+            }
+        }
+        if(tokens.size() <= 1) res = stoi(tokens[0]);
+        return res;
+    }
+};
