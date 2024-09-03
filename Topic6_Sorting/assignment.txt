@@ -1,0 +1,16 @@
+// Describle your solution by you own
+// Calculate the Time Complexity and Space Complexity
+// Add new folder with your name and addd your homework in the folder
+
+Sorting 
+https://leetcode.com/problems/pancake-sorting/
+https://leetcode.com/problems/merge-sorted-array/
+https://leetcode.com/problems/sort-an-array/
+https://leetcode.com/problems/sort-colors/
+https://leetcode.com/problems/largest-number/
+https://leetcode.com/problems/merge-sorted-array/ (with O(1) space)
+https://leetcode.com/problems/merge-two-sorted-lists
+https://leetcode.com/problems/sort-characters-by-frequency/
+https://leetcode.com/problems/sort-list/
+https://leetcode.com/problems/merge-intervals/ (optional)
+
