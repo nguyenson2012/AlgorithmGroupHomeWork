@@ -1,0 +1,12 @@
+// Describle your solution by you own
+// Calculate the Time Complexity and Space Complexity
+// Add new folder with your name and addd your homework in the folder
+
+HashTable
+https://leetcode.com/problems/max-number-of-k-sum-pairs/
+https://leetcode.com/problems/group-anagrams/
+https://leetcode.com/problems/continuous-subarray-sum/
+https://leetcode.com/problems/subarray-sum-equals-k/
+https://leetcode.com/problems/intervals-between-identical-elements/submissions/
+https://leetcode.com/problems/valid-anagram/
+
