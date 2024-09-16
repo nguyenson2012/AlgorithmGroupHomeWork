@@ -1,0 +1,14 @@
+// Describle your solution by you own
+// Calculate the Time Complexity and Space Complexity
+// Add new folder with your name and addd your homework in the folder
+
+https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/submissions/ 
+https://leetcode.com/problems/path-sum/ 
+https://leetcode.com/problems/find-leaves-of-binary-tree/ 
+https://leetcode.com/problems/range-sum-of-bst/
+https://leetcode.com/problems/validate-binary-search-tree/ 
+https://leetcode.com/problems/binary-search-tree-iterator/
+https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/ 
+https://leetcode.com/problems/kth-smallest-element-in-a-bst/ 
+https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/ 
+
