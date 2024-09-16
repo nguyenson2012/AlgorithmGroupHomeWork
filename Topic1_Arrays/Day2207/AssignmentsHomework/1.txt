@@ -1,0 +1,22 @@
+//Using two loop to solve problem. That way is save memory so much but i think it isn't the best solution.
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        vector <int> TwoNumber;
+        for(int i = 0; i < nums.size(); i++)
+        {
+            for(int j = i + 1; j < nums.size(); j++)
+            {
+                if(nums[i] + nums[j] == target)
+                {
+                    TwoNumber.push_back(i);
+                    TwoNumber.push_back(j);
+                    break;
+                }
+            }
+            if(TwoNumber.size() == 2) break;
+        }
+        return TwoNumber;
+    }
+};
