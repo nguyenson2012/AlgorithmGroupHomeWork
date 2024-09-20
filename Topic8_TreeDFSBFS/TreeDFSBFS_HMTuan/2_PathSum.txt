@@ -1,0 +1,33 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+
+// Time complexity: O(n)
+// Space complexity: O(1) 
+// Explanation: Using recursive dfs
+
+class Solution {
+public:
+    bool hasPathSum(TreeNode* root, int targetSum) {
+        // checking TreeNode is null or not
+        if(!root) return false;
+
+        // return true if the current targetSum = leaf node value
+        if(root->left == NULL && root->right == NULL)
+            return targetSum == root->val;
+
+        bool leftSum = hasPathSum(root->left, targetSum - root->val);
+        bool rightSum = hasPathSum(root->right, targetSum - root->val);
+
+        // if leftSum or rightSum is true -> func is true
+        return leftSum || rightSum;
+    }
+};
