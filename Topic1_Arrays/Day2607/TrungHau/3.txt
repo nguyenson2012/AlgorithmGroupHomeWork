@@ -1,0 +1,20 @@
+// Time complexity: O(n)
+// Memory complexity: O(1)
+// Description: Using a variable to save value of subarray which has max value at index present. And comparing with max_ variable to update that.
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int max_ = nums[0];
+        int sum_previous = nums[0];
+        for(int i = 1; i < nums.size(); i++){
+            if(sum_previous + nums[i] < nums[i]){
+                sum_previous = nums[i];
+            }
+            else {
+                sum_previous += nums[i];
+            }
+            max_ = max(sum_previous, max_);
+        }
+        return max_;
+    }
+};

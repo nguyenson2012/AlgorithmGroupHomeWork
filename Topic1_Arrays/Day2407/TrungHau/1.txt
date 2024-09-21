@@ -1,0 +1,22 @@
+// Time complexity: O(n * log(n) + n)
+// Memory complexity: 
+// With each string element, i sort all character in string and push it in map 
+
+class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        vector<vector<string>> res;
+        unordered_map<string, vector<string>> anagramGroups;
+
+        for (const string &s : strs) {
+            string sortedStr = s;
+            sort(sortedStr.begin(), sortedStr.end());
+            anagramGroups[sortedStr].emplace_back(s);
+        }
+
+        for (const auto& group : anagramGroups) {
+            res.emplace_back(group.second);
+        }
+        return res;
+    }
+};

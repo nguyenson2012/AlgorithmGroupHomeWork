@@ -1,0 +1,23 @@
+// Time complexity: O(nlog(n))
+// Memory complexity: O(1)
+// Desciption: Using sort to solve this problem.
+
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        if(nums.size() == 0) return 0;
+        sort(nums.begin(), nums.end());
+        int count = 1;
+        int max_ = 1;
+        for(int i = 1; i < nums.size(); i++){
+            if(nums[i] == nums[i - 1] + 1){
+                count++;
+                max_ = max(max_, count);
+            }
+            else {
+                if(nums[i] != nums[i - 1]) count = 1;
+            }
+        }
+        return max_;
+    }
+};

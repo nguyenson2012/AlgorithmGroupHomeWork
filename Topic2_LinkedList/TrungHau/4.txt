@@ -1,0 +1,57 @@
+// Time complexity: O(n)
+// Space complexity: O(n)
+// Description: ...
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode* temp = head;
+        int size = 0;
+        while(temp != NULL)
+        {
+            size++;
+            temp = temp->next;
+        }
+
+            //cout << size << '\n';
+        int pos = 1;
+        ListNode* tempNode = head;
+        while(pos < size - n)
+        {
+            tempNode = tempNode->next;
+            pos++;
+        }
+        if(n == size)
+        {
+            head = head->next;
+        }
+        else
+        {
+            //cout << pos << '\n';
+        ListNode* cur = NULL;
+        if(tempNode->next != NULL)
+        {
+            cur = tempNode->next->next;
+        }
+        else 
+        {
+            cur = NULL;
+        }
+
+        tempNode->next = cur;
+        }
+
+        return head;
+
+    }
+};

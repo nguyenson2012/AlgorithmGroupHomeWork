@@ -1,0 +1,55 @@
+// Time complexity: O(3n)
+// Space complexity: O(n)
+// Description: Seperate ListNode to two equally part. Reverse behind part. Add to each main Node
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    void reorderList(ListNode* head) {
+        ListNode* first = head;
+        ListNode* second = head;
+        ListNode* temp = head;
+        while(second->next != NULL){
+            temp = first;
+            if(first->next != NULL) first = first->next;
+            if(second->next != NULL)
+            {
+                second = second->next;
+                if(second->next != NULL)
+                second = second->next;
+            }
+        }
+        if(first == second) return;
+        temp->next = NULL;
+        ListNode* newNode = NULL;
+        while(first != NULL){
+            ListNode* tempNode = new ListNode(first->val);
+            if(newNode == NULL){
+                newNode = tempNode;
+            }
+            else{
+                tempNode->next = newNode;
+                newNode = tempNode;
+            }
+            first = first->next;
+        }
+        ListNode* currentNode = head;
+        while(currentNode != NULL && newNode != NULL)
+        {
+            ListNode* tempNode = new ListNode(newNode->val, currentNode->next);
+            currentNode->next = tempNode;
+            currentNode = currentNode->next;
+            if(currentNode->next != NULL) currentNode = currentNode->next;
+            newNode = newNode->next;
+        }
+
+    }
+};

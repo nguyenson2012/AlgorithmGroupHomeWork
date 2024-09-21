@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int longestSubarray(vector<int>& nums, int limit) {
+        multiset <int> save;
+        int j = 0;
+        int ans = 1;
+        for(int i = 0; i < nums.size(); i++){
+            save.insert(nums[i]);
+            while(!save.empty() && *save.rbegin() - *save.begin() > limit){
+                save.erase(save.find(nums[j]));
+                j++;
+            }
+            ans = max(ans, i - j + 1);
+        }
+        return ans;
+    }
+};
