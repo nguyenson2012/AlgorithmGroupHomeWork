@@ -1,0 +1,33 @@
+// Description: Use  unordered_map.
+// Time complexity: O(n).
+// Memory complexity: O(n).
+#include <vector>
+#include <unordered_map>
+using namespace std;
+
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+        unordered_map<int, int> prefixSumCount; 
+        int sum = 0; 
+        int result = 0; 
+        
+        prefixSumCount[0] = 1;
+        
+        for (int num : nums) {
+            sum += num; 
+            if (prefixSumCount.find(sum - k) != prefixSumCount.end()) {
+
+                result += prefixSumCount[sum - k];
+            }
+            prefixSumCount[sum]++;
+        }
+        
+        return result;
+    }
+};
+
+
+In another case: use 2 loop:
+// Time complexity: O(n ^ 2).
+// Memory complexity: O(1).

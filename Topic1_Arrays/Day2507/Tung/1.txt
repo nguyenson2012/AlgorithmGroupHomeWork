@@ -1,0 +1,27 @@
+// Description: Use pointer left and right.
+// Time complexity: O(n).
+// Memory complexity: O(1).
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        int result = 0;
+        int left = 0 ; 
+        int right = height.size()-1;
+        while(left < right )
+        {
+            int height_c = min(height[left] , height[right]);
+            int wight = right - left;
+            int area = wight * height_c;
+            result = max(result , area);
+            if(height[left] < height[right])
+            {
+                left++;
+            } 
+            else
+            {
+                right--;
+            }
+        }
+        return result;
+    }
+};
