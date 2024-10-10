@@ -1,0 +1,46 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+
+// Time complexity: O(max(m, n)) m-size of l1, n-size of l2. Because of iterating till end of both ListNode.
+// Space complexity: O(max(m, n)) 
+// Explanation: Add 2 corresponding node and handle carry like normal.
+//  		*Remember* to handle the last carry
+
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        int carry = 0;
+        ListNode* dummy = new ListNode();
+        ListNode* sumList = dummy;
+
+        // And 2 val from 2 correspoding nodes
+        while(l1 != nullptr || l2 != nullptr ){
+            // Check if access to null pointer
+            int l1Val = (l1 != nullptr) ? l1->val : 0;
+            int l2Val = (l2 != nullptr) ? l2->val : 0;
+
+            int sum = l1Val + l2Val + carry;
+            carry = sum / 10;
+            ListNode* newNode = new ListNode(sum%10);
+            
+            sumList->next = newNode;
+            sumList = sumList->next;
+            if(l1 != nullptr) l1 = l1->next;
+            if(l2 != nullptr) l2 = l2->next;
+        }
+
+        // Handle if there is exist the last carry
+        if(carry > 0){
+            sumList->next = new ListNode(carry);
+        }
+        return dummy->next;
+    }
+};
