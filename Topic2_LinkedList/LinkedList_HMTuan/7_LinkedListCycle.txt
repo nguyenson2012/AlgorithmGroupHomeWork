@@ -1,0 +1,33 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+
+// Time complexity: O(n) 
+// Space complexity: O(1) 
+// Explanation: Using 2 pointer fast and slow (Tortoise and Hare algorithm).
+//		The fast pointer moves twice as fast as the slow pointer.
+//  		If there is cycle they will eventually meet.
+
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        // Tortoise and Hare algorithm
+        ListNode* fast = head;
+        ListNode* slow = head;
+        while(fast != nullptr && fast->next != nullptr){
+            slow = slow->next;
+            fast = fast->next->next;
+            // No matter how far between fast and slow pointer. 
+            // If there is cycle they will eventually meet
+            if(slow == fast){
+                return true;
+            }
+        }
+        return false;
+    }
+};

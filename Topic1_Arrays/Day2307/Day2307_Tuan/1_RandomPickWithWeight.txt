@@ -1,0 +1,30 @@
+// Time complexity: O(N + log N)
+// Using the interval between 2 index of cumulative sum to represent the Selection Possibility
+class Solution {
+private:
+    vector<int> cumulativeSum; 
+public:
+    Solution(vector<int>& w) {
+	// Calculate cumulative sum according to weight[i]
+        int sum = 0;
+        for(int weight : w){
+            sum += weight;
+            cumulativeSum.push_back(sum);
+        }
+    }
+    // Using binary search to find the possibility of random weight
+    int pickIndex() {
+	// +1 at the end of randWeight to include the last element 
+        int randWeight = rand() % cumulativeSum.back() + 1;
+        int low = 0, high = cumulativeSum.size()-1;
+        while(low < high){
+            int mid = (low + high) / 2;
+            if(randWeight <= cumulativeSum[mid]){
+                high = mid;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return low;
+    }
+};

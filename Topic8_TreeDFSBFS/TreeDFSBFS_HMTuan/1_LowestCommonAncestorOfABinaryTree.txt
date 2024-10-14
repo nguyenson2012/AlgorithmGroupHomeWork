@@ -1,0 +1,30 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+
+// Time complexity: O(n)
+// Space complexity: O(h) - height of the Binary Tree
+// Explanation: Using recursive DFS
+
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if (!root || root == p || root == q) return root;
+
+        TreeNode* left = lowestCommonAncestor(root->left, p, q); 
+        TreeNode* right = lowestCommonAncestor(root->right, p, q);
+
+        // this is the lowest common ancestor
+        if (left && right) return root;
+
+        // if node found return it here propegate 
+        // it up till we find the other node
+        return left ? left : right;
+    }
+};

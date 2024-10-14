@@ -1,0 +1,41 @@
+//Complexity: O(n*m)
+
+class Solution {
+public:
+    int numIslands(vector<vector<char>>& grid) {
+        queue<pair<int, int>> q;
+        int rows = grid.size();
+        int cols = grid[0].size();
+        int cnt = 0;
+        vector<pair<int, int>> directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+        for(int i = 0; i < rows; i++){
+            for(int j = 0; j < cols; j++){
+                if(grid[i][j] == '1'){
+                    pair<int, int> p;
+                    p.first = i;
+                    p.second = j;
+                    q.push(p);
+                    grid[i][j] = '0';
+                	++cnt;
+                	cout << cnt << "\n";
+                    while(!q.empty()){
+                    	pair<int, int> peek = q.front();
+						q.pop();
+						cout << peek.first << " " << peek.second << "\n";
+						for(pair<int, int> dir : directions){
+							int neighboor_x = peek.first + dir.first;
+							int neighboor_y = peek.second + dir.second;
+							if(neighboor_x >= 0 && neighboor_x < rows && neighboor_y >= 0 
+							&& neighboor_y < cols && grid[neighboor_x][neighboor_y] == '1'){
+								pair<int, int> neighboor = {neighboor_x, neighboor_y};
+								q.push(neighboor);
+								grid[neighboor_x][neighboor_y] = '0';
+							}
+						}
+					}
+                }
+            }
+        }
+        return cnt;
+    }
+};

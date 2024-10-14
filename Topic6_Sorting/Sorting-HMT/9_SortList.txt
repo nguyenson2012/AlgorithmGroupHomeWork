@@ -1,0 +1,67 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+
+// Time complexity: O(n*logn)
+// Space complexity: O(n) - 2 additional ListNode left, right
+// Explanation: Using Merge Sort
+
+class Solution {
+public:
+    ListNode* sortList(ListNode* head) {
+        if (!head || !head->next) return head; 
+
+        ListNode* temp = NULL;
+        ListNode* slow = head;
+        ListNode* fast = head;
+
+        // Find mid node using tortoise and hare algorithm
+        while(fast != NULL && fast->next != NULL){
+            temp = slow;
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+
+        temp->next = NULL;
+
+        // Recursively divide into 2 list node
+        ListNode* left = sortList(head);  
+        ListNode* right = sortList(slow);
+
+        return mergeList(left, right);
+    }
+    ListNode* mergeList(ListNode* left, ListNode* right){
+        ListNode* dummy = new ListNode();
+        ListNode* curr = dummy;
+
+        while(left != NULL && right != NULL){
+            if(left->val <= right->val){
+                curr->next = left;
+                left = left->next;
+            }else{
+                curr->next = right;
+                right = right->next;
+            }
+            curr = curr->next;
+        }
+
+        while(left != NULL){
+            curr->next = left;
+            left = left->next;
+            curr = curr->next;
+        }
+        while(right != NULL){
+            curr->next = right;
+            right = right->next;
+            curr = curr->next;
+        }
+        return dummy->next;
+    }
+};

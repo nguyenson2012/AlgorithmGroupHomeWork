@@ -1,0 +1,25 @@
+// Time complexity: O(n) 
+// Space complexity: O(n) - n: words.length 
+// Explanation: Using 2d array to store the frequency of each word
+
+class Solution {
+    public List<String> commonChars(String[] words) {
+        int[][] freq = new int[words.length][26];
+        for (int i = 0; i < words.length; i++) {
+            for (char c : words[i].toCharArray()) {
+                freq[i][c - 'a']++;
+            }
+        }
+        List<String> res = new ArrayList<>();
+        for (int i = 'a'; i <= 'z'; i++) {
+            int min = Integer.MAX_VALUE;
+            for (int j = 0; j < freq.length; j++) {
+                min = Math.min(min, freq[j][i-'a']);
+            }
+            for (int j = 0; j < min; j++) {
+                res.add(String.valueOf((char) i));
+            }
+        }
+        return res;
+    }
+}

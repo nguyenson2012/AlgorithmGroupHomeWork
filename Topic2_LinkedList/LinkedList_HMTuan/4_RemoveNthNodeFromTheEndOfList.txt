@@ -1,0 +1,44 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+
+// Time complexity: O(n)
+// Space complexity: O(n) - using stack to store n nodes
+// Explaination: Pushing all nodes into stack and pop of n times to find the one to be removed.
+
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        stack<ListNode*> nodeStack;
+        ListNode* current = head;
+        while(current != nullptr){
+            nodeStack.push(current);
+            current = current->next;
+        }
+
+        // Pop n nodes off the stack
+        while(n-- && !nodeStack.empty()) {
+            nodeStack.pop();
+        }
+
+        // *Edge case: the 1st node to be removed
+        if (nodeStack.empty()) {
+            ListNode* newHead = head->next;
+            return newHead;
+        }
+
+        // Assign the next of the previous node to the next of node to remove
+        ListNode* prev = nodeStack.top();
+        ListNode* nodeToRemove = prev->next;
+        prev->next = nodeToRemove->next; 
+
+        return head;
+    }
+};
